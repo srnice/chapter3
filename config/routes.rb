@@ -1,16 +1,40 @@
 Chapter3::Application.routes.draw do
-  resources :users
-  get "static_pages/home"
- get "static_pages/help"
-  get "static_pages/about"
-  get "static_pages/contact"
+ resources :users do
+  collection do
+    get :tigers
+  end
+end
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+ # get "static_pages/home"
+ # get "static_pages/help"
+ # get "static_pages/about"
+ # get "static_pages/contact"
 
   
-root to: 'static_pages#home'
-   match '/help',    to: 'static_pages#help'
+  root to: 'static_pages#home'
+  
+  match '/actionFlowManagement',     to: 'static_pages#actionFlowManagement'
+  match '/hadoopSystemInfo',     to: 'static_pages#hadoopSystemInfo'
+  match '/scheduledActionFlowManagement',    to: 'static_pages#scheduledActionFlowManagement'
+  match '/templateAdd',     to: 'static_pages#templateAdd'
+  match '/system',     to: 'static_pages#system'
+  match '/apiKey',    to: 'static_pages#apiKey'
+  
+  match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/signup',  to: 'users#new'
+  
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

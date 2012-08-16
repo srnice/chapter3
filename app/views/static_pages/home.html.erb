@@ -1,13 +1,37 @@
-<div class="center hero-unit">
-  <h1>Welcome to the Sample App</h1>
+<% if signed_in? %>
+  <div class="row">
+    <form class="well span3 offset8">
+        <h2>Cluster Status</h2>
+    	<input class="btn btn-success" type="button" value="Success">
+    	<input class="btn btn-warning" type="button" value="Warning">
+    	<input class="btn btn-danger" type="button" value="Danger">
+    </form>
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+    	<ul class="nav nav-tabs">
+    		<li class="active"><a href="#tab1" data-toggle="tab">My Job</a></li>
+    		<li><a href="#tab2" data-toggle="tab">All</a></li>
+    	</ul>
+    	<div class="tab-content">
+    		<div class="tab-pane active" id="tab1">
+    			<%= render 'shared/main_table'%>
+    		</div>
+    		<div class="tab-pane" id="tab2">
+    			<%= render 'shared/main2_table'%>
+    		</div>
+    	</div>
+    </div>
+  </div>  
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the SPADE</h1>
 
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+    <h2>
+      Please Sign in
+    </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+    <%= link_to "Sign up now!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+  </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+<% end %> 
