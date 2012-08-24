@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "NEXT SPADE", root_path, id: "logo" %>
+      <%= link_to "NEXT SPADE", actionflows_path(is_dashboard: true), id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <% if signed_in? %>
-            <li><%= link_to "Action Flow Management", actionFlowManagement_path %></li>
-            <li><%= link_to "Scheduled Action Flow Management", scheduledActionFlowManagement_path %></li>
+            <li><%= link_to "Action Flow Management", actionflows_path(is_dashboard: false) %></li>
+            <li><%= link_to "Scheduled Action Flow Management", scheduledactionflows_path%></li>
             <li><%= link_to "Hadoop System Info", hadoopSystemInfo_path %></li>
             
             <li id="fat-menu" class="dropdown">

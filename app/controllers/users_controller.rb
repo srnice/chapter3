@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_filter :admin_user,     only: :destroy
    def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+   
   end
   def destroy
     User.find(params[:id]).destroy
@@ -12,7 +12,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end	
   def new
-     @user = User.new
+    @user = User.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+      format.js{	}
+    end
   end
   def index
      @users = User.paginate(page: params[:page])

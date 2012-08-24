@@ -1,0 +1,48 @@
+<h1>Action Flow Management</h1>
+<div class="row">
+  <%= render 'shared/search' %>
+  <div class="btn-group span12">
+  	<button class="btn">Action Flow Register</button>
+  	<button class="btn">Action Flow Modify</button>
+  	<button class="btn">Action Flow Remove</button>
+  	<button class="btn">Action Flow Copy</button>
+  	<button class="btn">Schedule Register</button>
+  </div>
+  <table class="table table-striped span 12">
+	 <thead>
+	   <tr>
+	     <th></th>
+	     <th>Action Flow ID</th>
+	     <th>Name</th>
+	     <th>Status</th>
+	     <th>Registrant</th>
+	     <th>Registration Date</th>
+	   </tr>
+	 </thead>
+	 <tbody>
+	 	<% @actionflows.each do |actionflow| %>
+		  <tr>
+		    <td><input type="checkbox"></td>
+		    <td><%= link_to actionflow["id"], actionflow_path(:id => actionflow["id"]), :remote => true, :"data-toggle"=> 'modal', :"data-target" => "#myModal" %></td> <!--show action flow with param-->
+		    <td><%= actionflow["name"]%></td>
+		    <td><%= actionflow["status"]%></td>
+		    <td>null</td>
+		    <td>null</td>
+		  </tr>
+		<% end %> 	  
+	 </tbody>
+	</table>
+	
+</div>
+
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <h3>Action Flow Info</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+

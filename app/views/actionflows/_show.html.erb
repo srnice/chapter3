@@ -1,0 +1,13 @@
+<b>Actionflow ID :</b> <%= @actionflow["id"] %><br>
+<b>Actions :</b>
+<ul>
+  <% @actionflow["actions"].each do |action| %>
+    <li>
+      <span>ID : <%= action["id"] %></span> <br>
+      <span>Name : <%= action["name"] %></span> <br>
+      <span>Status : <%= action["status"] %></span> <br>
+      <span>Type : <%= action["shell"] %></span> <br>
+      <span>Properties : <%= action["properties"] %></span> <br>
+    </li>
+  <% end %>
+</ul>

@@ -1,12 +1,19 @@
 Chapter3::Application.routes.draw do
+
+ 
+
+
+ resources :actions
+ resources :actionflows 
+ resources :scheduledactionflows
+
  resources :users do
   collection do
     get :tigers
   end
 end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
+ 
   resources :users do
     member do
       get :following, :followers
@@ -18,11 +25,11 @@ end
  # get "static_pages/contact"
 
   
-  root to: 'static_pages#home'
+  root to: 'actionflows#index'
   
-  match '/actionFlowManagement',     to: 'static_pages#actionFlowManagement'
+  
   match '/hadoopSystemInfo',     to: 'static_pages#hadoopSystemInfo'
-  match '/scheduledActionFlowManagement',    to: 'static_pages#scheduledActionFlowManagement'
+  
   match '/templateAdd',     to: 'static_pages#templateAdd'
   match '/system',     to: 'static_pages#system'
   match '/apiKey',    to: 'static_pages#apiKey'

@@ -1,0 +1,94 @@
+<% if signed_in? %>
+  <div class="row">
+    <form class="well span3 offset8">
+        <h2>Cluster Status</h2>
+      <input class="btn btn-success" type="button" value="Success">
+      <input class="btn btn-warning" type="button" value="Warning">
+      <input class="btn btn-danger" type="button" value="Danger">
+    </form>
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">My Job</a></li>
+        <li><a href="#tab2" data-toggle="tab">All</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+          <table class="table table-striped span 12">
+             <thead>
+               <tr>
+                 <th></th>
+                 <th>Action Flow ID</th>
+                 <th>Name</th>
+                 <th>Process Status</th>
+                 <th>Status</th>
+                 <th>Cluster</th>
+                 <th>Precess Step</th>
+                 <th>Start Time</th>
+                 <th>End Time</th>
+                 <th>Duration</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td><input type="checkbox"></td>
+                 <td>test1</td>
+                 <td>action Flow 1</td>
+                 <td>success</td>
+                 <td>100%</td>
+                 <td>dev2</td>
+                 <td>HDFS</td>
+                 <td>10:00</td>
+                 <td>12:00</td>
+                 <td>2h</td>
+               </tr>   
+             </tbody>
+          </table>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <table class="table table-striped span 12">
+             <thead>
+               <tr>
+                 <th></th>
+                 <th>Action Flow ID</th>
+                 <th>Name</th>
+                 <th>Process Status</th>
+                 <th>Status</th>
+                 <th>Cluster</th>
+                 <th>Precess Step</th>
+                 <th>Start Time</th>
+                 <th>End Time</th>
+                 <th>Duration</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td><input type="checkbox"></td>
+                 <td>test1</td>
+                 <td>action Flow 1</td>
+                 <td>success</td>
+                 <td>100%</td>
+                 <td>dev2</td>
+                 <td>HDFS</td>
+                 <td>10:00</td>
+                 <td>12:00</td>
+                 <td>2h</td>
+               </tr>   
+             </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>  
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the SPADE</h1>
+
+    <h2>
+      Please Sign in
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+  </div>
+
+<% end %> 
